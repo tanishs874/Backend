@@ -1,0 +1,98 @@
+
+// Node js hai khoob sara c++ ka code ji ki liya gaya hai chrome browser ke v8 engine ke code se aur ye c++ code jsiko liya gaya hai wrap kar diya 
+// gaya hai js code se and ye hume allow karta hai hum js mai code likhe aur ye js code accept karega and c++ ke basis par apko server environment
+// bana kar dega par sirf tab tak jab tak ye code chlaega jab tak node(v8 engine and js wrapper) chalta hai..
+
+//npm => Today there is no as such full form of npm but earlier it is used to call (node package manager)..because earlier only node packages were there but today there are many packages like react,viewjs,node,java..etc..
+
+//npm ek jagha hai jaha par khoob sare packages milte hai
+// bani banai cheejein/features kehlaate hai packages
+
+//text --> voice 
+//npm package for text->audio
+
+//npm = packags ka playstore = files of codes ..
+
+
+//npm se kuch install karna --> ( npm i package name )
+
+//install -> npm i
+//use 
+
+// var oneLinerJoke = require('one-liner-joke');
+// console.log(oneLinerJoke.getRandomJoke());
+
+// var figlet = require("figlet");
+// figlet("Tanish!!!", function (err, data) {
+//     if (err) {
+//       console.log("Something went wrong...");
+//       console.dir(err);
+//       return;
+//     }
+//     console.log(data);
+//   });
+  
+
+//how to print results
+
+// express framework for node.js
+// express ka use case => routing
+// routing => 
+// https://www.facebook.com -> This is the base url 
+// writting after base url like https://www.facebook.com/profile
+// /profile => this is called routes .
+// /profile => user able to see profile
+// /contact => user able to see contact
+// /like/aggsge => user able to like post
+// /comment/sgda => user able to comment on post
+
+// Types of routes --> 1) GET 2) POST --> GET and POST are main ..
+// 3) PUT 4) PATCH 5) DELETE
+
+// GET --> If we want the data to be shown on the URL that type of route is called GET route
+// POSt -> If we do not want the data to be shown on the URL that type of route is called POST route.
+
+// first page of every website is always "/" like www.facebook.com  is originally www.facebook.com/
+
+const express = require('express')
+const app = express()
+
+app.use(function(req,res,next){
+    console.log("hello from middleware");
+    next();//jab bhi koi kaam app.use me karte hai uske baad next() lagaa anivaraya hai
+})
+
+app.use(function(req,res,next){
+    console.log("hello from middleware 2 ");
+    next();//jab bhi koi kaam app.use me karte hai uske baad next() lagaa anivaraya hai
+})
+
+app.use(function(req,res,next){
+    console.log("hello from middleware 3");
+    next();//jab bhi koi kaam app.use me karte hai uske baad next() lagaa anivaraya hai
+})
+
+
+
+app.get('/', function (req, res) {
+  res.send('Hello tanish sharma ')
+})
+
+
+app.get('/profile', function (req, res) {
+    res.send('Hello from profile ')
+  })
+  
+
+app.listen(3000)
+
+//Middleware --> request ane ke baad or route ke pohchne tak ke pehle jo porcess hota hai uska name hai middleware
+
+// middleware ek aisa functino hai jo kisi bhi route se pehle chalta hai, jiska matlab aapka route chalne se phele agar 
+// aap koi kaam karana chahte ho to middleware ka upyog kiya jaa skta hai
+
+// iska matlab route chalne se pehle jo chalega vo hai middleware
+
+// sirf ek dikkat hai agar humara middleware chal gya to request jam ho jaati hai 
+// aur route tak nahi phuch paati 
+///---> for this we use next();
