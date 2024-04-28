@@ -1,0 +1,37 @@
+// INTERNET
+
+Message from mobile phone is transferred in the forms of packets to the nearest tower -->
+--> then the data gets converted to electrical signals -->
+--> then the message will be transferred through wires under the sea -->
+--> and then the electrical signals will reach the nearest tower of the receiver's end -->
+--> then the tower will convert the electrical signals to packets -->
+--> then the message will be recived by receiver
+
+
+// ROUTER
+
+Router has MAC Adress of every connected device..
+--> In the earlier times a hacker can change the MAC address to the other's MAC address and can receive all the messages that are sent to the user's MAC address
+--> But nowdays there is end to end encrytption in which you have a shared key on the basis of shared key your message is decrypted
+
+// Question--> Can we say if any computer which is connected to the INTERNET and is programmed to receive request and give response back is called a server?
+
+--> YES 
+
+http --> hyper text transfer protocol
+
+https --> hyper text transfer protocol secure
+
+--> WE cannot send or recive anything without http and https
+
+--> Date ka ana jana http or https taye karta hai ..
+
+--> All the ISP(Internet Service Provider) have to follow all the rules of Internet.
+
+http --> Not Secured --> Data can be monitored or hacked in these websites 
+https --> Secured -> We cannot read the data because it is encrypted.
+
+To get connected with a server we use ports ..
+Ports can be closed and open 
+
+examples of prots --> 4000,8000,3000
