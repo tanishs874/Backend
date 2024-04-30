@@ -4,6 +4,7 @@ const express = require('express')
 const app = express();
 
 app.set("view engine","ejs");//configure ejs 
+app.use(express.static('./public'));
 
 // app.use(function(req,res,next){
 //     console.log('middleware working ')///MIDDLEWARE
@@ -26,6 +27,17 @@ app.get('/contact',function(req,res){
 //     res.send(`Hello from ${req.params.username}`)
 // })
 
+app.get('/error',function(req,res,next){
+    throw Error ("something went wrong")
+});
+
+app.use(function errorHandler (err, req, res, next) {
+    if (res.headersSent) {
+      return next(err)
+    }
+    res.status(500)
+    res.render('error', { error: err })
+  })
 
 app.listen(3001);
 
@@ -96,3 +108,36 @@ app.listen(3001);
 
 // <h3><%= age %></h3>//Write this on the page of ejs
 // -----> This will change age to 10 wherever written on the page ..
+
+// STATIC FILES SET UP-->
+// 1) Create a folder public
+// 2) Create 3 folders inside it, images,stylesheets,javascripts..
+// 3) Configure the express static in script.js
+// 4) Understand the path 
+
+// How to configure the express static in script.js
+// app.use(express.static('./public');
+
+// We do not want to write the css and javascirpt code in the index.ejs file . So, thats why we used this 
+// After configuring we weill create a file "style.css" in stylesheet folder..
+// currently we are in the "views" folder ..--> Firstly we need to get out of this views folder and then we will go to public->stylesheet->style.css file 
+// remove all the css code written on the index.ejs and then just paste that code in the style.css folder 
+// after this we need to link that file in index.ejs
+// how to link 
+// ---> <link rel="stylesheet" href="../stylesheets/style.css"></link>
+
+
+//error handler 
+
+// app.get('/error',function(req,res,next){
+//     throw Error ("something went wrong")
+// });
+
+
+// function errorHandler (err, req, res, next) {
+//     if (res.headersSent) {
+//       return next(err)
+//     }
+//     res.status(500)
+//     res.render('error', { error: err })
+//   }
