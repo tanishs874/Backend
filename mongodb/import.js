@@ -52,5 +52,13 @@ router.get('/', function(req, res, next) {
 
 //----> If username is not found then it will reuturn the blank page ....It will return the null value 
 
+///====> How to delete a user 
+router.get("/delete",async function(req,res){
+    let deleteduser = await userModel.findOneAndDelete({
+      username:"tanish"
+    })
+    res.send(deleteduser);
+  })
+  
 
 module.exports = router;
