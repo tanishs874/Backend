@@ -1,0 +1,45 @@
+Flash message --> Jab bhi ap kisi ejs page ko dekhenge vaa par apko kisi prakar
+ka koi information dena hai , wo kehlata hai flash messages , they are more like good looking alerts, warning and description.
+
+----->
+install connect-flash
+make sure you setup express-session
+make sure you put connect flash in app.use function
+kisi bhi route mein aap ko flash create karna hai 
+kisi bhi doosre route par app use chalne ka try karein 
+
+--> Hum log chahte hai ki jab hum kisi route par jae jaise ki /failed us route par ek flash message bane or vo flash message hum logo ko / route par dikhe ejs mein 
+
+flash message ka matlab server ke kisi route mei koi data banana and us data ko doosre route 
+me use kar pana
+
+----> // flash message apko allow karte hai ki aap is route me bane hue data ko dusre route me use kar sako
+
+Set up for flash messages--
+// require and use flash in app.js file 
+var flash = require('connect-flash'); 
+app.use(flash());
+
+
+
+// router.get('/', function(req, res, next) {
+//   //agar login hojae to login page ke baad profile pagea dikha do 
+//   //or agar na ho to fir , mujhe is route se kisi aur route le jao jaise ki 
+//   //   /error and waha par dikhao failed
+
+//   // flash message apko allow karte hai ki aap is route me bane hue data ko dusre route me use kar sako
+// });
+
+router.get('/failed',function(req,res){
+  // req.flash(name,data)
+  req.flash("age",12);
+  req.flash("name","tanish");
+  res.send("ban gya")
+})
+
+router.get('/checkkaro',function(req,res){
+  console.log(req.flash("age"),req.flash("name"));
+  res.send("check karlo backend ke terminal par");
+})
+
+module.exports = router;
