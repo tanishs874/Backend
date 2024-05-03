@@ -31,3 +31,10 @@
 //       res.send("BAN REMOVED");
 //     })
 //   })
+
+// How to create a session
+//---> req.session.koibhinaam = koibhivalue;
+// How to read 
+// --> req.session.koibhinaam
+//--> How to delete
+//---> req.session.destroy
