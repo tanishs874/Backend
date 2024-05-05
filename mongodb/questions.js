@@ -24,4 +24,11 @@ router.get('/find',async function(req,res){
     res.send(user);
   })
 
-  
+//   Q2. Find documents where an array field contains all of a set of value
+
+
+router.get("/find",async function(req,res){
+    let user = await userModel.find({categories:{$all:['dance']}});
+    res.send(user);
+  })
+  // let user = await userModel.find({categories:{$all:['dance']}}); --> This will find all the users whose categories includes dance ..
