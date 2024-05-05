@@ -32,3 +32,14 @@ router.get("/find",async function(req,res){
     res.send(user);
   })
   // let user = await userModel.find({categories:{$all:['dance']}}); --> This will find all the users whose categories includes dance ..
+
+
+//   Q3. Search for documents with a specific date range
+
+router.get("/find", async function(req,res){
+    var date1 = new Date('2024-05-03');
+    var date2 = new Date('2024-05-05');
+    let user = await userModel.find({datecreated:{ $gte:date1,$lte:date2 }});
+    res.send(user);
+  })
+  // It will find the data of the given date range
