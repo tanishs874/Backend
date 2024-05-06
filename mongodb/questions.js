@@ -42,7 +42,7 @@ router.get("/find", async function(req,res){
     let user = await userModel.find({datecreated:{ $gte:date1,$lte:date2 }});
     res.send(user);
   })
-  // It will find the data of the given date range
+  // It will find the data of the given date range..
 
 //   Q4. Filter documents based on the existence of a field
 
