@@ -3,7 +3,7 @@
 // router.get('/find',async function(req,res){
 //   let user = await userModel.find({username:"tanish"});
 //   res.send(user);
-// })--> In the database if username is tanish --> and we also write tanish then only it will show the data on the browser,, but if we use caps in between then it will not shown the data on the web page 
+// })--> In the database if  username is tanish --> and we also write tanish then only it will show the data on the browser,, but if we use caps in between then it will not shown the data on the web page 
 
 // to resolve this we use  RegExp   -->
 
